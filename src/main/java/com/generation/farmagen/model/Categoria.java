@@ -26,9 +26,9 @@ public class Categoria {
 	@Size(min=5,max=50,message="O titulo de conter entre 5 e 50 caracteres")
 	private String titulo;
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("Produto")
-	private List<Produto> produto;
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria")
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
@@ -46,12 +46,12 @@ public class Categoria {
 		this.titulo = titulo;
 	}
 
-	public List<Produto> getProduto() {
-		return produto;
+	public List<Produto> getProdutos() {
+		return produtos;
 	}
 
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 	
 	
